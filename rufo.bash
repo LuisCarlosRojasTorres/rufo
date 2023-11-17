@@ -27,9 +27,14 @@ for ((i=1; i<= MAX_STEPS; i++)) ; do
    MEM_AVAILABLE_NOUNIT=${MEM_AVAILABLE_END%* kB}
    MEM_AVAILABLE_VALUE_kB=${MEM_AVAILABLE_NOUNIT##* }
    MEM_AVAILABLE_VALUE_MB=$(($MEM_AVAILABLE_VALUE_kB/1024))
+   MEM_AVAILABLE_VALUE_GB=$(( $MEM_AVAILABLE_VALUE_MB/1024 ))
    
+   echo "$((10**9 * 20/7))e-9" 
+
+ADAD=$(( printf %.10f\\n "$((1000000000 *   20/7  ))e-9" ))
+echo "TEST ${ADAD}"
    echo " - Step: ${i}"
-   echo "${i} ${MEM_AVAILABLE_VALUE_MB}" >> ${OUTPUT}
+   echo "${i} ${MEM_AVAILABLE_VALUE_MB}e-3 ${MEM_AVAILABLE_VALUE_GB}" >> ${OUTPUT}
 
    sleep $STEP_TIME
 done

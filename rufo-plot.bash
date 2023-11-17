@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OUTPUT="./ouput.data"
+OUTPUT="./output.data"
 file="image.png"
 
 gnuplot <<EOF
